@@ -1,5 +1,4 @@
 package GeeksforGeeks;
-
 //{ Driver Code Starts
 // Initial Template for Java
 
