@@ -52,3 +52,14 @@ What is a For Loop and Why is it Used?
         This step only happens once at the beginning.
     ->  Condition: You specify a condition that determines when the loop should stop executing.
     ->  Increment/Decrement: You define how the counter variable changes after each iteration.
+!----------------------------------------------------------------------------------------------------------------------------!
+While Loop:
+    ->  While loops are particularly useful when you need to ensure that a block of code executes only when the condition is satisfied 
+        as it terminates as soon as that condition becomes false.
+    -> Without proper termination conditions, a while loop can run indefinitely, leading to what's known as an "infinite loop." 
+        Infinite loops can crash programs and consume excessive system resources, making them a critical issue to avoid.
+    ->  break: It allows you to exit the loop prematurely, even before the termination condition is met.
+    ->  continue: It skips the current iteration of the loop and moves to the next one.
+!----------------------------------------------------------------------------------------------------------------------------!
+Pass-by-reference: When a method is called, the method arguments reference the same variable in memory as the caller.
+Pass-by-value: When a method is called, the caller passes a copy of the argument variables to the method resulting in two values in memory. 
