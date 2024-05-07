@@ -62,4 +62,47 @@ While Loop:
     ->  continue: It skips the current iteration of the loop and moves to the next one.
 !----------------------------------------------------------------------------------------------------------------------------!
 Pass-by-reference: When a method is called, the method arguments reference the same variable in memory as the caller.
+                   Direct access is granted to original variables. Not secure. No overhead of copying large data.
+Example Code:
+    #include<iostream>
+    using namespace std;
+    void squarebyref(int &);
+    int main()
+    {
+       int b=4;
+       squarebyref(b); // giving the direct access by giving address without using pointers like in C
+       cout<<"The value of b is "<<b;
+    }
+    void squarebyref(int &b) // address is received as arguments
+    {
+        b = b*b; // denotes main function b and changes the value of original b in main function.
+    }
+
+Output: 
+The value of b is 16
+
+!----------------------------------------------------------------------------------------------------------------------------!
 Pass-by-value: When a method is called, the caller passes a copy of the argument variables to the method resulting in two values in memory. 
+               Variables are copied. They are secured. More space for larger variables.
+Example Code:
+    #include<iostream>
+    using namespace std;
+    int square(int);
+    int main()
+    {
+        int a=5;
+        cout<<square(a)<<endl;
+        cout<<"value of a is "<<a;
+    }
+    int square(int a)
+    {
+        return a*a;
+    }
+
+Output: 
+25
+value of a is 5
+
+NOTE - No changes are done in variable a .
+     - All changes are done in copy of the variable a in square function.
+!----------------------------------------------------------------------------------------------------------------------------!

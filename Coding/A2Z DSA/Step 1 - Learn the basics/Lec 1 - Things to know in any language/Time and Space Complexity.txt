@@ -1,0 +1,60 @@
+                            Time complexity
+
+Definition:
+    The rate at which the time, required to run a code, changes with respect to the input size, 
+    is considered the time complexity. Basically, the time complexity of a particular code depends 
+    on the given input size, not on the machine used to run the code.
+
+Rules:
+    1. We will always calculate the time complexity for the worst-case scenario.
+    2. We will avoid including the constant terms.
+    3. We will also avoid the lower values.
+
+1. Calculate the time complexity for the worst-case scenario:
+    Best, Average and Worst Case:
+        Ref: case example pic..
+        Best Case: This term refers to the case where the code takes the least amount of time to get executed. 
+                    For example, if the mark is 10(i.e. < 25), only the first line will be executed and 
+                    the rest of the lines will be skipped. 
+                    So, the least amount of steps i.e. only 2 steps are required in this case. 
+                    This is an example of the best case.
+        Worst Case: This term refers to the case where the code takes the maximum amount of time to get executed. 
+                    For example, if the mark is 70(i.e. > 65), the last line will be executed after checking all the above conditions. 
+                    So, the maximum amount of steps i.e. 4 steps are required in this case. 
+                    This is an example of the worst case.
+        Average Case: This term is pretty self-explanatory. 
+                    This is basically the case between the best and the worst.
+
+2. Avoid including the constant terms:
+    Here, the first step (i.e. int x = 2) will be executed in unit time i.e. constant time. 
+    The precise time complexity is O(3N + 1) but in this case, the constant 1 is very less significant. 
+    So we will write the time complexity as O(3N) avoiding the constant term.
+
+3. Avoid the lower values:
+    A point to remember is that we can actually ignore the constant coefficients as well. 
+    For example, considering the time complexity O(4*N^3 ) as O(N^3 ) is also correct.
+
+!---------------------------------------------------------------------------------------------------------!
+
+                                Space complexity
+
+Definition:
+    Space complexity generally represents the summation of auxiliary space and the input space. 
+    Auxiliary space refers to the space that we use additionally to solve a problem. 
+    And input space refers to the space that we use to store the inputs.
+
+*********************************************************************************************************************
+**      A company may use the same data for different purposes.                                                    **
+**      That is why we should not attempt to manipulate the given data for reducing the space complexity.          **
+**      So, we will never manipulate the given data i.e. the inputs until the interviewer specifically says so.    **
+*********************************************************************************************************************
+
+Points to remember:
+    In competitive programming or in the platforms like Leetcode and GeeksforGeeks, we generally run our codes on online servers. 
+    Most of these servers execute roughly 10^8 operations in approximately 1 second i.e. 1s. 
+    We must be careful that if the time limit is given as 2^s the operations in our code must be roughly 2*10^8, not 10^16. 
+    Similarly, 5s refers to 5*10^8. 
+    Simply, if we want our code to be run in 1s, the time complexity of our code must be around O(10^8) 
+    avoiding the constants and the lower values.
+
+!---------------------------------------------------------------------------------------------------------!
