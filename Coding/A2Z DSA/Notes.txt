@@ -1,0 +1,54 @@
+IF - ELSE IF - ELSE:
+->  We can refactor the code, we can remove the lower bounds and check only the upper bounds 
+    for each grade as the code flow is such that we move along the conditions only after satisfying 
+    the previous one.
+->  if-else statements and their variants empower you to write code that responds dynamically 
+    to changing conditions.
+!----------------------------------------------------------------------------------------------------------------------------!
+SWITCH:
+->  The break statement is crucial; 
+    it ensures that the switch statement exits after the matching case is executed, 
+    preventing the execution of subsequent cases.
+->  The (Optional) Default Case: The default case serves as a safety net. If none of the cases match the expression, 
+    the code inside the default block will execute.
+->  Requirement for a Constant Expression
+    A switch statement necessitates that its expression results in a constant value. 
+    This can include constants and arithmetic operations.
+->  Limited to Integer or Character Types
+    Switch statements are exclusively designed to handle integer or character values. 
+    Ensure that the expression provides values of type int or char.
+->  Prohibition of Duplicate Case Values
+    Within a switch statement in C++, duplicates of case values are disallowed. 
+    Each case value must be distinct.
+->  Potential for Nested Switch Statements
+    While it's possible to nest one switch statement inside another in C++, 
+    this practice is generally discouraged due to its potential to introduce complexity and hinder code readability.
+->  public class Main {
+    public static void main(String[] args) {
+        int x = 2;
+        int y = 3;
+
+        switch (x) {
+            case 1:
+                System.out.println("x is 1.");
+                switch (y) {
+                    case 1:
+                        System.out.println("y is 1.");
+                        break;
+                    default:
+                        System.out.println("y is not 1.");
+                }
+                break;
+            default:
+                System.out.println("x is not 1.");
+        }
+    }
+}
+!----------------------------------------------------------------------------------------------------------------------------!
+What is a For Loop and Why is it Used?
+    A for loop is a control structure in programming that allows you to execute a specific block of code repeatedly. 
+    It's especially useful when you want to perform the same task multiple times without duplicating your code. 
+    ->  Initialization: You declare and initialize a variable that serves as a counter. 
+        This step only happens once at the beginning.
+    ->  Condition: You specify a condition that determines when the loop should stop executing.
+    ->  Increment/Decrement: You define how the counter variable changes after each iteration.
