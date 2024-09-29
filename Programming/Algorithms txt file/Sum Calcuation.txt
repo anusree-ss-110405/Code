@@ -1,0 +1,47 @@
+You are given N positive numbers. The task is to calculate the total sum of floor(A_i / A_j) for each pair of indices (i, j) where 1 ≤ 𝑖 , 𝑗 ≤ 𝑁 (1≤i,j≤N).
+
+Input Format:
+The first line of input contains T, denoting the number of test cases.
+For each test case:
+The first line contains the integer N (the number of elements).
+The second line contains N space-separated integers 
+
+Output Format:
+For each test case, print the result modulo 1000003. Each result should be printed in a new line.
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+const int MOD = 1000003;
+
+int main() {
+    int T;
+    cin >> T;
+    
+    while (T--) {
+        int N;
+        cin >> N;
+        vector<int> A(N);
+        
+        // Reading the array
+        for (int i = 0; i < N; i++) {
+            cin >> A[i];
+        }
+        
+        // Calculate the sum of floor(A_i / A_j) for all pairs
+        long long total_sum = 0;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                total_sum += (A[i] / A[j]);
+                total_sum %= MOD;  // Apply the modulo at each step
+            }
+        }
+        
+        // Output the result for the current test case
+        cout << total_sum << endl;
+    }
+    
+    return 0;
+}

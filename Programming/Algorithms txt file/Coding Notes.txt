@@ -1,0 +1,129 @@
+11.09.2024
+
+Integer to Binary Conversion:
+	Using toBinaryString() inbuilt method of the Integer class of Java
+	Integer.toBinaryString(num)
+	The method Integer.toBinaryString(num) returns a String, not an integer. It converts the integer num      into its binary representation in string format.
+
+Leetcode POD
+
+My Logic:
+
+class Solution {
+    public int minBitFlips(int start, int goal) {
+
+        String start_binary = Integer.toBinaryString(start);
+        String goal_binary = Integer.toBinaryString(goal);
+
+        char[] start_char = String start_binary.toCharArray();
+        char[] goal_char = String goal_binary.toCharArray();
+
+        int max_flips = 0;
+
+        for(char i : start_char){
+            for(char j : goal_char){
+                if(i!=j)
+                    max_flips++;
+            }
+        }
+
+        return max_flips;
+    }
+}
+
+Corrected Code:
+
+class Solution {
+    public int minBitFlips(int start, int goal) {
+
+        // Convert to binary strings
+        String start_binary = Integer.toBinaryString(start);
+        String goal_binary = Integer.toBinaryString(goal);
+        
+        // Pad the shorter string with leading zeros
+        int maxLength = Math.max(start_binary.length(), goal_binary.length());
+        
+        // Pad the binary strings so that they are of equal length
+        start_binary = String.format("%" + maxLength + "s", start_binary).replace(' ', '0');
+        goal_binary = String.format("%" + maxLength + "s", goal_binary).replace(' ', '0');
+        
+        // Convert to char arrays
+        char[] start_char = start_binary.toCharArray();
+        char[] goal_char = goal_binary.toCharArray();
+
+        int max_flips = 0;
+
+        // Compare the bits at each position
+        for(int i = 0; i < start_char.length; i++){
+            if(start_char[i] != goal_char[i]){
+                max_flips++;
+            }
+        }
+
+        return max_flips;
+    }
+}
+
+
+Reasons for correction:
+
+for(char i : start_char){
+    for(char j : goal_char){
+        if(i != j)
+            max_flips++;
+    }
+}
+
+This is incorrect because it compares every character in start_char with every character in goal_char. This results in a quadratic comparison, which is not the intended behavior. You should compare corresponding bits, not all combinations of bits.
+
+Handling Binary Strings of Different Lengths: You are comparing the start and goal binary strings directly. However, binary strings for different numbers can have different lengths. 
+
+Optimised Code:
+
+class Solution {
+    public int minBitFlips(int start, int goal) {
+        // XOR start and goal to find the bits that differ
+        int xor = start ^ goal;
+        
+        // Count the number of 1's in the XOR result (those are the bit flips needed)
+        return Integer.bitCount(xor);
+    }
+}
+
+XOR - same bits - ZERO
+XOR - different bits - ONE
+
+If you meant .bitCount(), it's a method in Java, used with integers to count the number of 1 bits in the binary representation of a number:
+
+E.g.; int bitCount = Integer.bitCount(number);
+
+This method returns how many bits are set to 1 in the binary form of the integer.
+
+GFG POTD:
+
+class Solution {
+    // Function to return the minimum cost of connecting the ropes.
+    public long minCost(long[] arr) {
+        PriorityQueue<Long> pq = new PriorityQueue<>();
+        ArrayList<Long>ls = new ArrayList<>();
+        for(long a : arr){
+            pq.add(a);
+        }
+        
+        while(pq.size()>1){
+            long n = pq.poll() + pq.poll();
+            
+            ls.add(n);
+            pq.add(n);
+        }
+        
+        long ans = 0;
+        
+        for(int i = 0; i<ls.size(); i++){
+            ans += ls.get(i);
+        }
+        return ans;
+    }
+}
+
+_____________________________________________________________________________________________________________
